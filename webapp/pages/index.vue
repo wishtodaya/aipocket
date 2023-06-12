@@ -1,11 +1,12 @@
 <script setup lang="ts">
+
+import Header from "~/components/nav/Header.vue";
+
 const route = useRoute()
 </script>
 
 <template>
-  <div>
-    <h1>Nuxt Routing set up successfully!</h1>
-    <p>Current route: {{ route.path }}</p>
-    <a href="https://nuxt.com/docs/getting-started/routing" target="_blank">Learn more about Nuxt Routing</a>
-  </div>
+  <Header></Header>
+  <Content></Content>
+  <Footer></Footer>
 </template>
