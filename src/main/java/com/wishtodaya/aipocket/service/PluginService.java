@@ -7,5 +7,4 @@ import com.wishtodaya.aipocket.model.Plugin;
 
 public interface PluginService extends IService<Plugin> {
     Page<Plugin> getPluginsByCategory(int pageNumber, int pageSize, Category category);
-    Page<Plugin> getPlugins(int pageNumber, int pageSize);
 }

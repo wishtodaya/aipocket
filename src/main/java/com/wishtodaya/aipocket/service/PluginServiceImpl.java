@@ -19,23 +19,6 @@ public class PluginServiceImpl extends ServiceImpl<PluginMapper, Plugin> impleme
     }
 
     /**
-     * 查找所有插件
-     * @param pageNumber
-     * @param pageSize
-     * @return Page<Plugin>
-     */
-    public Page<Plugin> getPlugins(int pageNumber, int pageSize) {
-        // 创建 Page 对象
-        Page<Plugin> page = new Page<>(pageNumber, pageSize);
-
-        // 使用分页查询
-        pluginMapper.selectPage(page,null);
-
-        // 返回结果
-        return page;
-    }
-
-    /**
      * 根据类型查找插件
      * @param pageNumber
      * @param pageSize
