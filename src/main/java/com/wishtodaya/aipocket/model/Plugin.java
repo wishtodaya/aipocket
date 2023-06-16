@@ -1,14 +1,15 @@
 package com.wishtodaya.aipocket.model;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
+@TableName("plugin")
 public class Plugin {
     private String id;
     private String domain;
     private String namespace;
     private String apiUrl;
-    private String categoryId;
     private String nameForModel;
     private String nameForHuman;
     private String descriptionForModel;

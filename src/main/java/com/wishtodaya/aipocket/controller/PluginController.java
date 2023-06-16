@@ -8,7 +8,10 @@ import com.wishtodaya.aipocket.service.PluginService;
 import com.wishtodaya.aipocket.utils.Result;
 import com.wishtodaya.aipocket.utils.StatusEnum;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -24,17 +27,13 @@ public class PluginController {
     }
 
     @GetMapping("/plugins")
-    public Result getPluginsByCategory(@RequestParam int pageNumber, @RequestParam int pageSize, @RequestParam(required = false) String categoryId) {
-        Category category = null;
-        if (categoryId != null) {
-            category = new Category();
-            category.setId(categoryId);
-        }
-        Page<Plugin> pagePlugins = pluginService.getPluginsByCategory(pageNumber, pageSize,category);
+    public Result getPluginsByCategory(@RequestParam int pageNumber, @RequestParam int pageSize, @RequestParam String categoryId) {
+        Page<Plugin> pagePlugins = pluginService.getPluginsByCategory(pageNumber, pageSize, categoryId);
         Result result = new Result(StatusEnum.SUCCESS);
         result.addData("pagePlugins", pagePlugins);
         return result;
     }
+
     @GetMapping("/categorys")
     public Result getAllCategorys() {
         List<Category> categorys = categoryService.getCategorys();
