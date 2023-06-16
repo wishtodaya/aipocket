@@ -4,6 +4,17 @@ spring:
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
